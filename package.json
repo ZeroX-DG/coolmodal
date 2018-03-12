@@ -1,0 +1,35 @@
+{
+  "name": "coolmodal",
+  "version": "1.0.0",
+  "description": "A cool, elegant modal creator for lazy developers",
+  "main": "dist/coolmodal.min.js",
+  "scripts": {
+    "test": "jest",
+    "build": "webpack -p",
+    "buildntest": "npm run build && npm run test"
+  },
+  "keywords": [
+    "modal"
+  ],
+  "author": "Hung Nguyen <viethungax@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-jest": "^22.4.1",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "babili-webpack-plugin": "^0.1.2",
+    "css-loader": "^0.28.10",
+    "jest": "^22.4.2",
+    "jquery": "^3.3.1",
+    "node-sass": "^4.7.2",
+    "regenerator-runtime": "^0.11.1",
+    "sass-loader": "^6.0.7",
+    "style-loader": "^0.20.3",
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.11"
+  },
+  "jest": {
+    "verbose": true
+  }
+}
