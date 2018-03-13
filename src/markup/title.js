@@ -1,7 +1,9 @@
 import CLASSNAME from '../class-list';
 
-const {MODAL} = CLASSNAME;
+const {
+  TITLE
+} = CLASSNAME;
 
 export default `
-  <div class='${MODAL}'></div>
+  <p class='${TITLE}'></p>
 `;

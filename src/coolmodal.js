@@ -1,10 +1,10 @@
 import {createModal} from './creator';
+import {validateOptions} from './option';
+import './styles/coolmodal.scss';
 
-
-function coolm() {
-  let modal = createModal();
-  document.body.appendChild(modal);
+function coolm(options) {
+  validateOptions(options);
+  createModal(options);
 }
 
 export default coolm;
-

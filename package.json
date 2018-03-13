@@ -17,6 +17,7 @@
     "babel-core": "^6.26.0",
     "babel-jest": "^22.4.1",
     "babel-loader": "^7.1.4",
+    "babel-plugin-add-module-exports": "^0.2.1",
     "babel-preset-env": "^1.6.1",
     "babili-webpack-plugin": "^0.1.2",
     "css-loader": "^0.28.10",
@@ -30,6 +31,6 @@
     "webpack-cli": "^2.0.11"
   },
   "jest": {
-    "verbose": true
+    "verbose": false
   }
 }

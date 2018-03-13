@@ -1,5 +1,5 @@
 const webpack = require('webpack');
-const path    = require('path');
+const path = require('path');
 const BabiliPlugin = require("babili-webpack-plugin");
 
 const library_name = 'coolmodal';
@@ -11,7 +11,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     library: library_name,
     libraryTarget: 'umd',
-    umdNamedDefine: true
+    umdNamedDefine: true,
   },
   module: {
     rules: [
@@ -22,13 +22,19 @@ module.exports = {
       },
       {
         test: /\.(scss|css)?$/,
-        use: 'style-loader!css-loader!sass-loader',
+        use: [{
+          loader: "style-loader" // creates style nodes from JS strings
+        }, {
+          loader: "css-loader" // translates CSS into CommonJS
+        }, {
+          loader: "sass-loader" // compiles Sass to CSS
+        }],
         exclude: /node_modules/
       }
     ]
   },
   resolve: {
-    extensions: [ '.scss', '.js' ]
+    extensions: ['.scss', '.js']
   },
   plugins: [
     new BabiliPlugin()

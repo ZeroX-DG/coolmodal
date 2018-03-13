@@ -1,0 +1,22 @@
+.coolm-button-group {
+
+  text-align: right;
+
+  .coolm-button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    color: black;
+    background: #cacaca;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: 'Lato', sans-serif;
+    cursor: pointer;
+    margin-left: 10px;
+    outline: none;
+
+    &:first-child {
+      margin-left: -10px;
+    }
+  }
+}

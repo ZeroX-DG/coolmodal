@@ -1,0 +1,17 @@
+.coolm-modal {
+  width: 50%;
+  padding: 20px;
+  background: white;
+  position: static;
+  opacity: 0;
+  z-index: 1001;
+  margin: 20px auto;
+  text-align: center;
+  border-radius: 5px;
+  display: inline-block;
+  vertical-align: middle;
+
+  transform: scale(1);
+  transform-origin: 50% 50%;
+  transition: transform 0.3s, opacity 0.2s;
+}

@@ -10,13 +10,13 @@ const {
 describe('create modal', () => {
 
   it('should have an overlay div', () => {
-    coolm();
+    coolm({title: 'Hey'});
     let hasOverlay = $$(MODAL_OVERLAY).length > 0;
     expect(hasOverlay).toBe(true);
   });
 
   it('should have a modal div', () => {
-    coolm();
+    coolm({title: 'Hey'});
     let hasModal = $$(MODAL).length > 0;
     expect(hasModal).toBe(true);
   });

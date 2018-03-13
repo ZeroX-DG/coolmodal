@@ -14,3 +14,7 @@ export function stringToNode(html) {
   wrapper.innerHTML = html.trim();
   return wrapper.firstChild;
 }
+
+export function getNode(query) {
+  return document.querySelector(`.${query}`);
+}
