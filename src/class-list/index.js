@@ -4,9 +4,9 @@ const BUTTON = 'coolm-button';
 
 export default {
   MODAL,
+  BUTTON,
+  TITLE,
+  BUTTON_GROUP           : `${BUTTON}-group`,
   MODAL_OVERLAY          : `${MODAL}-overlay`,
   MODAL_OVERLAY_HAS_MODAL: `${MODAL}-overlay--has-modal`,
-  TITLE,
-  BUTTON,
-  BUTTON_GROUP: `${BUTTON}-group`,
 }
