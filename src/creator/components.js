@@ -19,11 +19,17 @@ const {
 import title_html from '../markup/title';
 import button_html from '../markup/button';
 
-export function initTitle(title_content) {
-  let title = stringToNode(title_html);
-  let text = document.createTextNode(title_content);
-  title.appendChild(text);
-  injectToModal(title);
+export function initTitle(title_content, html) {
+  if (!html) {
+    let title = stringToNode(title_html);
+    let text = document.createTextNode(title_content);
+    title.appendChild(text);
+    injectToModal(title);
+  }
+  else {
+    let title = stringToNode(title_content);
+    injectToModal(title);
+  }
 }
 
 export function initButton() {
@@ -55,7 +61,6 @@ export function initButton() {
           form_result[input.name] = input.value;
         }
         dismissModal();
-        if(events['onDismiss']) events['onDismiss']();
         if(events['onSubmit']) events['onSubmit'](form_result);
         
       }
@@ -68,12 +73,18 @@ export function initButton() {
 
 export function initContent() {
   if (typeof arguments[0] == 'string') {
-    let paragraph = document.createElement('p');
-    paragraph.className = CONTENT;
-    paragraph.innerText = arguments[0];
-    injectToModal(paragraph);
+    let isHTML = arguments[1];
+    if (isHTML) {
+      injectToModal(stringToNode(arguments[0]));
+    }
+    else {
+      let paragraph = document.createElement('p');
+      paragraph.className = CONTENT;
+      paragraph.innerText = arguments[0];
+      injectToModal(paragraph);
+    }
   }
-  else {
+  else if(Array.isArray(arguments[0])){
     let form_content = arguments[0];
     let form = document.createElement('div');
     form.className = FORM;

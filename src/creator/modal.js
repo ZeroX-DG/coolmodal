@@ -22,9 +22,18 @@ export function dismissModal() {
 }
 
 export function initModalContent(options, events) {
-  initTitle(options.title);
-  options.content = options.content || '';
-  initContent(options.content);
+  if (options.title && options.title_html) {
+    dismissModal();
+    throw new Error('You can\'t have both \'title\' and \'title_html\'');
+  }
+  options.title = options.title || options.title_html || '';
+  initTitle(options.title, options.title_html != undefined);
+  if (options.content && options.content_html) {
+    dismissModal();
+    throw new Error('You can\'t have both \'content\' and \'content_html\'');
+  }
+  options.content = options.content || options.content_html || '';
+  initContent(options.content, options.content_html != undefined);
   options.button = options.button || [{content: 'OK', action: SUBMIT, type: BUTTON_INFO}];
   initButton(options.button, events);
 }
