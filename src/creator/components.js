@@ -3,8 +3,8 @@ import {stringToNode, getNode, getNodes} from './utility';
 import {injectToModal, dismissModal} from './modal';
 import default_const from '../default-const';
 const {
-  DISMISS,
-  SUBMIT
+  BUTTON_DISMISS,
+  BUTTON_SUBMIT
 } = default_const;
 import CLASSNAME from '../class-list';
 const {
@@ -39,14 +39,14 @@ export function initButton() {
     let text = document.createTextNode(button_info.content);
     button.appendChild(text);
     button.classList.add(button_info.type || BUTTON_INFO);
-    button_info.action = button_info.action || SUBMIT;
-    if (button_info.action == DISMISS) {
+    button_info.action = button_info.action || BUTTON_SUBMIT;
+    if (button_info.action == BUTTON_DISMISS) {
       button.onclick = function() {
         dismissModal();
         EventManager.emmit('onDismiss');
       }
     }
-    else if(button_info.action == SUBMIT){
+    else if(button_info.action == BUTTON_SUBMIT){
       button.onclick = function() {
         let inputs = getNodes(INPUT);
         let form_result = {};
