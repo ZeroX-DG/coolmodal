@@ -21,12 +21,12 @@ export function dismissModal() {
   getNode(MODAL_OVERLAY).remove();
 }
 
-export function initModalContent(options) {
+export function initModalContent(options, events) {
   initTitle(options.title);
   options.content = options.content || '';
   initContent(options.content);
   options.button = options.button || [{content: 'OK', action: SUBMIT, type: BUTTON_INFO}];
-  initButton(options.button);
+  initButton(options.button, events);
 }
 
 export function initModal() {

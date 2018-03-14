@@ -5,11 +5,11 @@ import CLASSNAME from '../class-list';
 
 const {MODAL_OVERLAY, MODAL_OVERLAY_HAS_MODAL} = CLASSNAME;
 
-export function createModal(options) {
+export function createModal(options, events) {
   if (!getNode(MODAL_OVERLAY)) {
     initOverlay();
     initModal();
     getNode(MODAL_OVERLAY).classList.add(MODAL_OVERLAY_HAS_MODAL);
-    initModalContent(options);
+    initModalContent(options, events);
   }
 }

@@ -1,13 +1,11 @@
 import {createModal} from './creator';
 import {validateOptions} from './option';
 import default_const from './default-const';
-import {bindEvents} from './event';
 import './styles/coolmodal.scss';
 
 function coolmodal(options, events = {}) {
   validateOptions(options);
-  createModal(options);
-  bindEvents(events);
+  createModal(options, events);
 }
 
 const default_const_names = Object.keys(default_const);
