@@ -66,6 +66,9 @@ coolmodal({
 
 And the result:
 
+<p align="center">
+  <img src='https://media.giphy.com/media/9VaGts3disb0OK62h0/giphy.gif' />
+</p>
 
 ## Contact
 Facebook: https://fb.com/ZeroXCEH<br>
