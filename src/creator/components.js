@@ -1,4 +1,3 @@
-import {EventManager} from '../event/EventManager';
 import {stringToNode, getNode, getNodes} from './utility';
 import {injectToModal, dismissModal} from './modal';
 import default_const from '../default-const';
@@ -32,6 +31,7 @@ export function initButton() {
   button_group.className = BUTTON_GROUP;
 
   let buttons = arguments[0];
+  let events = arguments[1];
 
   for (let i = 0; i < buttons.length; i++) {
     let button_info = buttons[i];
@@ -43,7 +43,7 @@ export function initButton() {
     if (button_info.action == BUTTON_DISMISS) {
       button.onclick = function() {
         dismissModal();
-        EventManager.emmit('onDismiss');
+        if(events['onDismiss']) events['onDismiss']();
       }
     }
     else if(button_info.action == BUTTON_SUBMIT){
@@ -54,9 +54,10 @@ export function initButton() {
           let input = inputs[i];
           form_result[input.name] = input.value;
         }
-        EventManager.emmit('onSubmit', form_result);
         dismissModal();
-        EventManager.emmit('onDismiss');
+        if(events['onDismiss']) events['onDismiss']();
+        if(events['onSubmit']) events['onSubmit'](form_result);
+        
       }
     }
     button_group.appendChild(button);  
