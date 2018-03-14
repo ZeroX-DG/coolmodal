@@ -32,5 +32,9 @@
   },
   "jest": {
     "verbose": false
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ZeroX-DG/coolmodal.git"
   }
 }
