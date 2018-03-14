@@ -18,3 +18,7 @@ export function stringToNode(html) {
 export function getNode(query) {
   return document.querySelector(`.${query}`);
 }
+
+export function getNodes(query) {
+  return document.querySelectorAll(`.${query}`);
+}

@@ -1,14 +1,6 @@
 import {validate} from './validate';
-
-const REQUIRED_OPTIONS = {
-  title: ['string'],
-  content: {
-    required: false,
-    types: ['string', 'array']
-  },
-  button: ['array']
-};
+import CONSTRAINTS from './components';
 
 export function validateOptions(options) {
-  validate(options, REQUIRED_OPTIONS);
+  validate(options, CONSTRAINTS);
 }
