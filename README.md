@@ -4,6 +4,9 @@
 ## About
 This library will help creating beautiful modals that can also have form on it.
 
+## Documentation
+Check out the documentation [here](docs/api.md).
+
 ## Basic usage
 
 First download this library using the command:
@@ -11,6 +14,13 @@ First download this library using the command:
 ```
 npm install coolmodal
 ```
+
+Then you can require and call `coolmodal` like this
+```js
+const coolmodal = require('coolmodal');
+coolmodal({title: 'Hey'});
+```
+
 Or download the coolmodal.min.js file in the release section:<br>
 https://github.com/ZeroX-DG/coolmodal/releases/
 <br>
@@ -18,13 +28,7 @@ And include it in your html file using script tag
 ```html
 <script src='path/to/coolmodal.min.js'></script>
 ```
-Then you can require and call `coolmodal` like this
-```js
-const coolmodal = require('coolmodal');
-coolmodal({title: 'Hey'});
-```
-
-Or if you're including `coolmodal` using `script` tag, then you can just call `coolmodal` function like this:
+Then you can just call `coolmodal` function like this:
 ```js
 coolmodal({title: 'Hey'});
 ```
@@ -43,8 +47,7 @@ You can specify the callback using the second parameter which is an object conta
 coolmodal({
   title: 'This is a form',
   content: [
-    {tag: 'label', text: 'Name:'},
-    {tag: 'input', name: 'name', placeholder: 'enter name...'}
+    {tag: 'input', name: 'name', placeholder: 'enter name...', label: 'Name:'}
   ],
   button: [
     {

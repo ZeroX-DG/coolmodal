@@ -13,17 +13,26 @@ const {
   LABEL,
   FORM_CONTROL,
   CONTENT,
-  BUTTON_INFO
+  BUTTON_INFO,
+  SELECT
 } = CLASSNAME;
 
 import title_html from '../markup/title';
 import button_html from '../markup/button';
+import {initInput} from './form-components/input';
+import {initSelect} from './form-components/select';
 
-export function initTitle(title_content) {
-  let title = stringToNode(title_html);
-  let text = document.createTextNode(title_content);
-  title.appendChild(text);
-  injectToModal(title);
+export function initTitle(title_content, html) {
+  if (!html) {
+    let title = stringToNode(title_html);
+    let text = document.createTextNode(title_content);
+    title.appendChild(text);
+    injectToModal(title);
+  }
+  else {
+    let title = stringToNode(title_content);
+    injectToModal(title);
+  }
 }
 
 export function initButton() {
@@ -48,14 +57,13 @@ export function initButton() {
     }
     else if(button_info.action == BUTTON_SUBMIT){
       button.onclick = function() {
-        let inputs = getNodes(INPUT);
+        let controls = getNodes(FORM_CONTROL);
         let form_result = {};
-        for(let i = 0; i < inputs.length; i++) {
-          let input = inputs[i];
-          form_result[input.name] = input.value;
+        for(let i = 0; i < controls.length; i++) {
+          let control = controls[i];
+          form_result[control.name] = control.value;
         }
         dismissModal();
-        if(events['onDismiss']) events['onDismiss']();
         if(events['onSubmit']) events['onSubmit'](form_result);
         
       }
@@ -68,12 +76,18 @@ export function initButton() {
 
 export function initContent() {
   if (typeof arguments[0] == 'string') {
-    let paragraph = document.createElement('p');
-    paragraph.className = CONTENT;
-    paragraph.innerText = arguments[0];
-    injectToModal(paragraph);
+    let isHTML = arguments[1];
+    if (isHTML) {
+      injectToModal(stringToNode(arguments[0]));
+    }
+    else {
+      let paragraph = document.createElement('p');
+      paragraph.className = CONTENT;
+      paragraph.innerText = arguments[0];
+      injectToModal(paragraph);
+    }
   }
-  else {
+  else if(Array.isArray(arguments[0])){
     let form_content = arguments[0];
     let form = document.createElement('div');
     form.className = FORM;
@@ -81,22 +95,33 @@ export function initContent() {
       let element = form_content[i];
       let tag;
       if (element.tag == 'input') {
-        tag = document.createElement('input');
-        tag.className = INPUT;
-        tag.classList.add(FORM_CONTROL);
-        tag.name = element.name;
-        tag.placeholder = element.placeholder;
-        tag.id = element.id;
+        tag = initInput(element);
+        if (element.label) {
+          form.appendChild(createLabel(element.label));
+        }
       }
       else if (element.tag == 'label') {
+        console.warn("[coolmodal] The label tag is deprecated and will be removed in the next release, use 'label' option for tag instead");
         tag = document.createElement('label');
         tag.className = LABEL;
-        tag.classList.add(FORM_CONTROL);
         tag.innerText = element.text;
+      }
+      else if (element.tag == 'select') {
+        tag = initSelect(element);
+        if (element.label) {
+          form.appendChild(createLabel(element.label));
+        }
       }
       
       form.appendChild(tag);
     }
     injectToModal(form);
   }
+}
+
+function createLabel(text) {
+  let label = document.createElement('label');
+  label.className = LABEL;
+  label.innerText = text;
+  return label;
 }
