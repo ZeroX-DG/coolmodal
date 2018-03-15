@@ -4,6 +4,9 @@
 ## About
 This library will help creating beautiful modals that can also have form on it.
 
+## Documentation
+Check out the documentation [here](docs/api.md).
+
 ## Basic usage
 
 First download this library using the command:

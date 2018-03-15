@@ -98,6 +98,7 @@ export function initContent() {
         tag.name = element.name;
         tag.placeholder = element.placeholder;
         tag.id = element.id;
+        tag.type = element.type;
       }
       else if (element.tag == 'label') {
         tag = document.createElement('label');
