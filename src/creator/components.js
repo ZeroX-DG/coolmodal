@@ -19,6 +19,8 @@ const {
 
 import title_html from '../markup/title';
 import button_html from '../markup/button';
+import {initInput} from './form-components/input';
+import {initSelect} from './form-components/select';
 
 export function initTitle(title_content, html) {
   if (!html) {
@@ -93,13 +95,7 @@ export function initContent() {
       let element = form_content[i];
       let tag;
       if (element.tag == 'input') {
-        tag = document.createElement('input');
-        tag.className = INPUT;
-        tag.classList.add(FORM_CONTROL);
-        tag.name = element.name;
-        tag.placeholder = element.placeholder;
-        tag.id = element.id;
-        tag.type = element.type;
+        tag = initInput(element);
         if (element.label) {
           form.appendChild(createLabel(element.label));
         }
@@ -111,18 +107,7 @@ export function initContent() {
         tag.innerText = element.text;
       }
       else if (element.tag == 'select') {
-        tag = document.createElement('select');
-        tag.className = SELECT;
-        tag.classList.add(FORM_CONTROL);
-        tag.name = element.name;
-        tag.id = element.id;
-        for(let j = 0; j < element.options.length; j++) {
-          let option = element.options[j];
-          let option_tag = document.createElement('option');
-          option_tag.setAttribute('value', option.value);
-          option_tag.appendChild(document.createTextNode(option.label));
-          tag.appendChild(option_tag);
-        }
+        tag = initSelect(element);
         if (element.label) {
           form.appendChild(createLabel(element.label));
         }
