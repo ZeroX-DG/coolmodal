@@ -29,5 +29,23 @@
     font-size: 15px;
     font-family: 'Lato', sans-serif;
     font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .coolm-select {
+    width: 100%;
+    padding: 10px;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    box-sizing: border-box;
+    border: 2px solid #e2e2e2;
+    outline: none;
+    transition: border 0.3s;
+    background: white;
+    border-radius: 5px;
+
+    &:focus {
+      border: 2px solid rgb(109, 109, 109);
+    }
   }
 }

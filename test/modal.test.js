@@ -1,4 +1,4 @@
-import {$$} from './helper/utility';
+import {$$, dismissModal} from './helper/utility';
 import coolmodal from '../dist/coolmodal.min.js';
 import CLASSNAME from '../src/class-list';
 
@@ -6,6 +6,8 @@ const {
   MODAL,
   MODAL_OVERLAY
 } = CLASSNAME;
+
+afterEach(() => dismissModal());
 
 describe('create modal', () => {
 
