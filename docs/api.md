@@ -9,6 +9,7 @@
     * [content](#option-content)
       * [label](#tag-label)
       * [input](#tag-input)
+      * [select](#tag-select)
     * [content_html](#option-contenthtml)
     * [button](#option-button)
   - [events](#events)
@@ -40,7 +41,8 @@ This option will determine how the modal content should look like. If you pass i
 
 Each object represent a tag. Here is list of supported tags and examples:
 
-#### tag: label
+#### tag: `label`
+**WARNING: This tag will be removed in the next release, use the label option instead** <br>
 To create a label, the object structure that you can use is:
 ```
 {
@@ -71,7 +73,8 @@ To create an input tag, you can specify the object with the structure like this
   id: <string> (input's id),
   name: <string> (input's name, use for event callback),
   type: <string> (input's type, example: password, email...),
-  placeholder: <string> (input's placeholder)
+  placeholder: <string> (input's placeholder),
+  label: <string> (label for input, a replacement for the label tag)
 }
 ```
 Example:
@@ -80,14 +83,51 @@ coolmodal({
   title: 'Subcribe to my website',
   content: [
     {
-      tag: 'label',
-      text: 'Email:'
-    },
-    {
       tag: 'input',
       name: 'email',
       placeholder: 'Enter your email...',
-      type: 'email'
+      type: 'email',
+      label: 'Email:'
+    }
+  ]
+})
+```
+
+#### tag: `select`
+To create a dropdown select tag, you can use this option to add it to the form. The structure of this option is:
+```
+{
+  tag: 'select',
+  name: <string> (select's name, use for event callback),
+  label: <string> (label for input, a replacement for the label tag),
+  options: <Array> (This property contains a list of object that indicate the options will be rendered in the select)
+}
+```
+
+The structure for each object in the `options` property of the `select` tag:
+
+```
+{
+  label: <string> (Label of the option),
+  value: <string> (Value of the option)
+}
+```
+
+Example:
+
+```js
+coolmodal({
+  title: 'Select your browser',
+  content: [
+    {
+      tag: 'select',
+      name: 'browser',
+      label: 'Browser:',
+      options: [
+        {label: 'Chrome', value: 1},
+        {label: 'Opera', value: 2},
+        {label: 'Firefox', value: 3}
+      ]
     }
   ]
 })

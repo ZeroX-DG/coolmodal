@@ -13,7 +13,8 @@ const {
   LABEL,
   FORM_CONTROL,
   CONTENT,
-  BUTTON_INFO
+  BUTTON_INFO,
+  SELECT
 } = CLASSNAME;
 
 import title_html from '../markup/title';
@@ -54,11 +55,11 @@ export function initButton() {
     }
     else if(button_info.action == BUTTON_SUBMIT){
       button.onclick = function() {
-        let inputs = getNodes(INPUT);
+        let controls = getNodes(FORM_CONTROL);
         let form_result = {};
-        for(let i = 0; i < inputs.length; i++) {
-          let input = inputs[i];
-          form_result[input.name] = input.value;
+        for(let i = 0; i < controls.length; i++) {
+          let control = controls[i];
+          form_result[control.name] = control.value;
         }
         dismissModal();
         if(events['onSubmit']) events['onSubmit'](form_result);
@@ -99,16 +100,43 @@ export function initContent() {
         tag.placeholder = element.placeholder;
         tag.id = element.id;
         tag.type = element.type;
+        if (element.label) {
+          form.appendChild(createLabel(element.label));
+        }
       }
       else if (element.tag == 'label') {
+        console.warn("[coolmodal] The label tag is deprecated and will be removed in the next release, use 'label' option for tag instead");
         tag = document.createElement('label');
         tag.className = LABEL;
-        tag.classList.add(FORM_CONTROL);
         tag.innerText = element.text;
+      }
+      else if (element.tag == 'select') {
+        tag = document.createElement('select');
+        tag.className = SELECT;
+        tag.classList.add(FORM_CONTROL);
+        tag.name = element.name;
+        tag.id = element.id;
+        for(let j = 0; j < element.options.length; j++) {
+          let option = element.options[j];
+          let option_tag = document.createElement('option');
+          option_tag.setAttribute('value', option.value);
+          option_tag.appendChild(document.createTextNode(option.label));
+          tag.appendChild(option_tag);
+        }
+        if (element.label) {
+          form.appendChild(createLabel(element.label));
+        }
       }
       
       form.appendChild(tag);
     }
     injectToModal(form);
   }
+}
+
+function createLabel(text) {
+  let label = document.createElement('label');
+  label.className = LABEL;
+  label.innerText = text;
+  return label;
 }
