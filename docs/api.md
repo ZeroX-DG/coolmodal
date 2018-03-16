@@ -25,7 +25,7 @@ The options parameter which is a normal javascript object which allows you to sp
 - `options` <[Object]>
   - `title` <[string]>
   - `title_html` <[string]>
-  - `content` <[string]|[Array]<[Object]>>
+  - `content` <[string] | [Array]<[Object]>>
   - `content_html` <[string]>
   - `button` <[Array]<[Object]>>
 
@@ -244,3 +244,9 @@ coolmodal(content, event);
 }
 */
 ```
+[Array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array "Array"
+[boolean]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type "Boolean"
+[function]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function "Function"
+[number]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type "Number"
+[Object]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object "Object"
+[string]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type "String"
