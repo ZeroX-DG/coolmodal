@@ -11,6 +11,7 @@
       * [select](#tag-select)
     * [content_html](#option-contenthtml)
     * [button](#option-button)
+    * [width](#option-width)
   - [events](#events)
     * [onDismiss()](#event-dismiss)
     * [onSubmit(data)](#event-submit)
@@ -147,6 +148,14 @@ let button = [
     content: 'OK'
   }
 ];
+```
+
+### Option: `width`
+The default width of the modal is 500px, however, if you want to change it, then you can specify the value for this option.
+
+Example:
+```js
+coolmodal({title: 'This is a modal', width: '800px'})
 ```
 
 ## Events
