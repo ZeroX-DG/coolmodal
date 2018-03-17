@@ -38,7 +38,8 @@ export function initModalContent(options, events) {
   initButton(options.button, events);
 }
 
-export function initModal() {
+export function initModal(width) {
   let modal = stringToNode(modal_html);
+  modal.style.width = width;
   getNode(MODAL_OVERLAY).appendChild(modal);
 }

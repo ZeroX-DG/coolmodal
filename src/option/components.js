@@ -54,8 +54,14 @@ const content = {
   }
 };
 
+const width = {
+  required: false,
+  types: ['string']
+};
+
 export default {
   title,
   content,
-  button
+  button,
+  width
 }
