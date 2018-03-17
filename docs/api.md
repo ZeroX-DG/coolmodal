@@ -7,7 +7,6 @@
     * [title](#option-title)
     * [title_html](#option-titlehtml)
     * [content](#option-content)
-      * [label](#tag-label)
       * [input](#tag-input)
       * [select](#tag-select)
     * [content_html](#option-contenthtml)
@@ -40,29 +39,6 @@ This option will help render your html code to the modal title. All you have to 
 This option will determine how the modal content should look like. If you pass in this option a string, that specific string will be rendered in the modal, however, instead of passing the string, you can pass an array of objects to create a form to display on the modal.
 
 Each object represent a tag. Here is list of supported tags and examples:
-
-#### tag: `label`
-**WARNING: This tag will be removed in the next release, use the label option instead** <br>
-To create a label, the object structure that you can use is:
-```
-{
-  tag: 'label',
-  text: <string> (text to display)
-}
-```
-
-Example:
-```js
-coolmodal({
-  title: 'Subcribe to my website',
-  content: [
-    {
-      tag: 'label',
-      text: 'Email:'
-    }
-  ]
-})
-```
 
 #### tag: `input`
 To create an input tag, you can specify the object with the structure like this
@@ -162,7 +138,7 @@ Example for the button option:
 let button = [
   {
     content: 'Cancel',
-    action: coolmodal.BUTTON_DISMISS, 
+    action: coolmodal.BUTTON_DISMISS,
     type: coolmodal.BUTTON_WARNING
   },
   {
@@ -221,7 +197,7 @@ let event = {
 }
 
 let content = {
-  title: 'Sign up', 
+  title: 'Sign up',
   content: [
     {tag: 'label', text: 'Name:'},
     {tag: 'input', name: 'name', placeholder: 'enter name...'},
