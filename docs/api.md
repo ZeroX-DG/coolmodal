@@ -12,7 +12,8 @@
     * [content_html](#option-contenthtml)
     * [button](#option-button)
     * [width](#option-width)
-    * [outsideClick](#option-outsideClick)
+    * [noButton](#option-nobutton)
+    * [outsideClick](#option-outsideclick)
     * [theme](#option-theme)
   - [events](#events)
     * [onDismiss()](#event-dismiss)
@@ -158,6 +159,14 @@ The default width of the modal is 500px, however, if you want to change it, then
 Example:
 ```js
 coolmodal({title: 'This is a modal', width: '800px'})
+```
+
+### Option: `noButton`
+To disable button in your modal, you can set this option to true.
+
+Example:
+```js
+coolmodal({title: 'This is a modal', noButton: true})
 ```
 
 ### Option: `outsideClick`

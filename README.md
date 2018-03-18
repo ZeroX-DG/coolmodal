@@ -1,5 +1,7 @@
-# Coolmodal
+<h1 align='center'>Coolmodal</h1>
+<p align='center'>
 *A cool, elegant modal creator for lazy developers*
+</p>
 
 ## About
 This library will help creating beautiful modals that can also have form on it.
@@ -41,7 +43,7 @@ The result:
 
 To use with form, you can add a `content` option to specify the form content. Also, there is the `button` option where you can add button to your modal with 4 different types: success, danger, warning, info and 2 different actions: submit and dismiss. When the button action is submit, the `onSubmit` event will be called and the value in the form will be sent to the event callback.
 
-You can specify the callback using the second parameter which is an object containing functions with the name matched the event name. 
+You can specify the callback using the second parameter which is an object containing functions with the name matched the event name.
 
 ```js
 coolmodal({
@@ -51,18 +53,18 @@ coolmodal({
   ],
   button: [
     {
-      content: 'Show my name', 
+      content: 'Show my name',
       action: coolmodal.BUTTON_SUBMIT
     },
     {
-      content: 'Dont show !', 
-      action: coolmodal.BUTTON_DISMISS, 
+      content: 'Dont show !',
+      action: coolmodal.BUTTON_DISMISS,
       type: coolmodal.BUTTON_DANGER
     }
   ]
 },{
   onSubmit(values) {
-    console.log(values);
+    coolmodal({title: values.name});
   }
 });
 ```
@@ -70,7 +72,22 @@ coolmodal({
 And the result:
 
 <p align="center">
-  <img src='https://media.giphy.com/media/9VaGts3disb0OK62h0/giphy.gif' />
+  <img src='https://media.giphy.com/media/2ip7SvGE1tP0adYtj4/giphy.gif' />
+</p>
+
+## Theme support
+coolmodal is now supported themes. If you want to add your theme, then don't hesitate to send me an PR of your theme.
+
+```js
+coolmodal({
+  title: 'This is a dark theme modal',
+  theme: 'dark'
+});
+```
+
+Result:
+<p align="center">
+  <img src='./docs/assets/darkmodal.png' />
 </p>
 
 ## Contact
