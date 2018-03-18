@@ -7,11 +7,13 @@
     * [title](#option-title)
     * [title_html](#option-titlehtml)
     * [content](#option-content)
-      * [label](#tag-label)
       * [input](#tag-input)
       * [select](#tag-select)
     * [content_html](#option-contenthtml)
     * [button](#option-button)
+    * [width](#option-width)
+    * [outsideClick](#option-outsideClick)
+    * [theme](#option-theme)
   - [events](#events)
     * [onDismiss()](#event-dismiss)
     * [onSubmit(data)](#event-submit)
@@ -40,29 +42,6 @@ This option will help render your html code to the modal title. All you have to 
 This option will determine how the modal content should look like. If you pass in this option a string, that specific string will be rendered in the modal, however, instead of passing the string, you can pass an array of objects to create a form to display on the modal.
 
 Each object represent a tag. Here is list of supported tags and examples:
-
-#### tag: `label`
-**WARNING: This tag will be removed in the next release, use the label option instead** <br>
-To create a label, the object structure that you can use is:
-```
-{
-  tag: 'label',
-  text: <string> (text to display)
-}
-```
-
-Example:
-```js
-coolmodal({
-  title: 'Subcribe to my website',
-  content: [
-    {
-      tag: 'label',
-      text: 'Email:'
-    }
-  ]
-})
-```
 
 #### tag: `input`
 To create an input tag, you can specify the object with the structure like this
@@ -149,20 +128,20 @@ Using this option, you can specify buttons for the modal. This option's value mu
 **Notice that there are default constants for the option action and type:**
 
 - action
-  * coolmodal.BUTTON_SUBMIT
-  * coolmodal.BUTTON_DISMISS
+  * `coolmodal.BUTTON_SUBMIT`
+  * `coolmodal.BUTTON_DISMISS`
 - type
-  * coolmodal.BUTTON_DANGER
-  * coolmodal.BUTTON_SUCCESS
-  * coolmodal.BUTTON_WARNING
-  * coolmodal.BUTTON_INFO
+  * `coolmodal.BUTTON_DANGER`
+  * `coolmodal.BUTTON_SUCCESS`
+  * `coolmodal.BUTTON_WARNING`
+  * `coolmodal.BUTTON_INFO`
 
 Example for the button option:
 ```js
 let button = [
   {
     content: 'Cancel',
-    action: coolmodal.BUTTON_DISMISS, 
+    action: coolmodal.BUTTON_DISMISS,
     type: coolmodal.BUTTON_WARNING
   },
   {
@@ -172,6 +151,37 @@ let button = [
   }
 ];
 ```
+
+### Option: `width`
+The default width of the modal is 500px, however, if you want to change it, then you can specify the value for this option.
+
+Example:
+```js
+coolmodal({title: 'This is a modal', width: '800px'})
+```
+
+### Option: `outsideClick`
+By default, user cannot dismiss modal by clicking outside it, however, you can enable this by setting this option to true.
+
+Example:
+```js
+coolmodal({title: 'This is a modal', outsideClick: true})
+```
+
+### Option: `theme`
+To change theme for the modal, you can specify this option with the theme name.
+
+Current supported themes:
+* `dark`
+* `dark-blue`
+* `darkside`
+
+Example:
+```js
+coolmodal({title: 'This is a modal', theme: 'dark'})
+```
+
+If you wish to submit your theme, send me a PR with your theme in it, I'll merge it as soon as I can!
 
 ## Events
 The event parameter is where you can specify your callback when a certain action is triggered.
@@ -221,12 +231,10 @@ let event = {
 }
 
 let content = {
-  title: 'Sign up', 
+  title: 'Sign up',
   content: [
-    {tag: 'label', text: 'Name:'},
-    {tag: 'input', name: 'name', placeholder: 'enter name...'},
-    {tag: 'label', text: 'Password:'},
-    {tag: 'input', name: 'pass', type: 'password', placeholder: 'enter pass...'},
+    {tag: 'input', name: 'name', placeholder: 'enter name...', label: 'Name:'},
+    {tag: 'input', name: 'pass', type: 'password', placeholder: 'enter pass...', label: 'Password:'},
   ],
   button: [
     {content: 'sign up', action: coolmodal.BUTTON_SUBMIT},

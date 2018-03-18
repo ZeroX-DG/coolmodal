@@ -35,10 +35,20 @@ export function initModalContent(options, events) {
   options.content = options.content || options.content_html || '';
   initContent(options.content, options.content_html != undefined);
   options.button = options.button || [{content: 'OK', action: SUBMIT, type: BUTTON_INFO}];
-  initButton(options.button, events);
+  if (!options.noButton) {
+    initButton(options.button, events);
+  }
 }
 
-export function initModal() {
+export function initModal(options) {
   let modal = stringToNode(modal_html);
+  if (options.width) {
+    modal.style.width = options.width;
+  }
+
+  if (options.theme) {
+    // change theme to lower case and all spaces to hyphen
+    modal.classList.add(options.theme.replace(/\s+/g, '-').toLowerCase());
+  }
   getNode(MODAL_OVERLAY).appendChild(modal);
 }

@@ -52,7 +52,9 @@ export function initButton() {
     if (button_info.action == BUTTON_DISMISS) {
       button.onclick = function() {
         dismissModal();
-        if(events['onDismiss']) events['onDismiss']();
+        if(events['onDismiss']) {
+          events['onDismiss']();
+        }
       }
     }
     else if(button_info.action == BUTTON_SUBMIT){
@@ -64,13 +66,15 @@ export function initButton() {
           form_result[control.name] = control.value;
         }
         dismissModal();
-        if(events['onSubmit']) events['onSubmit'](form_result);
-        
+        if(events['onSubmit']) {
+          events['onSubmit'](form_result);
+        }
+
       }
     }
-    button_group.appendChild(button);  
+    button_group.appendChild(button);
   }
-  
+
   injectToModal(button_group);
 }
 
@@ -100,19 +104,13 @@ export function initContent() {
           form.appendChild(createLabel(element.label));
         }
       }
-      else if (element.tag == 'label') {
-        console.warn("[coolmodal] The label tag is deprecated and will be removed in the next release, use 'label' option for tag instead");
-        tag = document.createElement('label');
-        tag.className = LABEL;
-        tag.innerText = element.text;
-      }
       else if (element.tag == 'select') {
         tag = initSelect(element);
         if (element.label) {
           form.appendChild(createLabel(element.label));
         }
       }
-      
+
       form.appendChild(tag);
     }
     injectToModal(form);

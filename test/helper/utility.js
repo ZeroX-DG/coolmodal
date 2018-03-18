@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import CLASSNAME from '../../src/class-list';
-const {MODAL_OVERLAY} = CLASSNAME;
+const {MODAL_OVERLAY, BUTTON} = CLASSNAME;
 
 export function $$(className) {
   return $(`.${className}`);

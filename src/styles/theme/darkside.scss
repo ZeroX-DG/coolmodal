@@ -1,0 +1,15 @@
+.coolm-modal.darkside {
+  background: #2f3341;
+  color: #f3cc84;
+
+  .coolm-input {
+    background: darken(#2f3341, 10);
+    color: #f3cc84;
+    border-color: #2f3341;
+    font-size: 15px;
+
+    &:hover {
+      border-color: #f3cc84;
+    }
+  }
+}

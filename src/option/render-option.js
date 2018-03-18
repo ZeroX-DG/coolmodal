@@ -54,8 +54,32 @@ const content = {
   }
 };
 
+const width = {
+  required: false,
+  types: ['string']
+};
+
+const theme = {
+  required: false,
+  types: ['string']
+};
+
+const noButton = {
+  required: false,
+  types: ['boolean']
+}
+
+const outsideClick = {
+  required: false,
+  types: ['boolean']
+}
+
 export default {
   title,
   content,
-  button
+  button,
+  width,
+  theme,
+  noButton,
+  outsideClick
 }
