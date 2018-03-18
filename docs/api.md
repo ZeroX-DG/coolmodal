@@ -172,12 +172,16 @@ coolmodal({title: 'This is a modal', outsideClick: true})
 To change theme for the modal, you can specify this option with the theme name.
 
 Current supported themes:
-- `dark`
+* `dark`
+* `dark-blue`
+* `darkside`
 
 Example:
 ```js
 coolmodal({title: 'This is a modal', theme: 'dark'})
 ```
+
+If you wish to submit your theme, send me a PR with your theme in it, I'll merge it as soon as I can!
 
 ## Events
 The event parameter is where you can specify your callback when a certain action is triggered.

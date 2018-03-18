@@ -47,7 +47,8 @@ export function initModal(options) {
   }
 
   if (options.theme) {
-    modal.classList.add(options.theme);
+    // change theme to lower case and all spaces to hyphen
+    modal.classList.add(options.theme.replace(/\s+/g, '-').toLowerCase());
   }
   getNode(MODAL_OVERLAY).appendChild(modal);
 }

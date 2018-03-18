@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "build": "webpack -p",
-    "buildntest": "npm run build && npm run test"
+    "buildntest": "npm run build && npm run test",
+    "dev": "webpack --watch -p"
   },
   "keywords": [
     "modal"
