@@ -21,5 +21,8 @@ export function initInput(option) {
   if (option.type) {
     tag.type = option.type;
   }
+  if (option.value) {
+    tag.value = option.value;
+  }
   return tag;
 }

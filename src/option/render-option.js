@@ -39,9 +39,9 @@ const content = {
       required: false,
       types: ['string']
     },
-    text: {
+    value: {
       required: false,
-      types: ['string']
+      types: ['string', 'number']
     },
     options: {
       required: false,
