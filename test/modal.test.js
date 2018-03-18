@@ -35,4 +35,15 @@ describe('create modal', () => {
     expect(modal.hasClass('dark')).toBe(true);
   });
 
+  it('should close on overlay click if outsideClick is enabled', () => {
+    coolmodal({title: 'Hey', outsideClick: true});
+    let has_modal = $$(MODAL).length > 0;
+    expect(has_modal).toBe(true);
+    setTimeout(() => {
+      $$(MODAL_OVERLAY).trigger('click');
+      let has_modal = $$(MODAL).length > 0;
+      expect(has_modal).toBe(false);
+    });
+  });
+
 });

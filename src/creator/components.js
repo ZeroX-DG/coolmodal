@@ -52,7 +52,9 @@ export function initButton() {
     if (button_info.action == BUTTON_DISMISS) {
       button.onclick = function() {
         dismissModal();
-        if(events['onDismiss']) events['onDismiss']();
+        if(events['onDismiss']) {
+          events['onDismiss']();
+        }
       }
     }
     else if(button_info.action == BUTTON_SUBMIT){
@@ -64,7 +66,9 @@ export function initButton() {
           form_result[control.name] = control.value;
         }
         dismissModal();
-        if(events['onSubmit']) events['onSubmit'](form_result);
+        if(events['onSubmit']) {
+          events['onSubmit'](form_result);
+        }
 
       }
     }
