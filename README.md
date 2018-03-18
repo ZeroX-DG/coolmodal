@@ -39,7 +39,8 @@ The result:
   <img src='https://media.giphy.com/media/BoOYvIaX6DzIRKoTDI/giphy.gif'>
 </p>
 
-## Use with form
+## Examples
+### Modal with form
 
 To use with form, you can add a `content` option to specify the form content. Also, there is the `button` option where you can add button to your modal with 4 different types: success, danger, warning, info and 2 different actions: submit and dismiss. When the button action is submit, the `onSubmit` event will be called and the value in the form will be sent to the event callback.
 
@@ -75,8 +76,8 @@ And the result:
   <img src='https://media.giphy.com/media/2ip7SvGE1tP0adYtj4/giphy.gif' />
 </p>
 
-## Theme support
-coolmodal is now supported themes. If you want to add your theme, then don't hesitate to send me an PR of your theme.
+### Modal with theme
+coolmodal is now supported themes. If you want to add your theme, then don't hesitate to send me an PR of your theme. All the styles for the theme is in the `src/styles/theme` folder.
 
 ```js
 coolmodal({
