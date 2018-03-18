@@ -12,6 +12,8 @@
     * [content_html](#option-contenthtml)
     * [button](#option-button)
     * [width](#option-width)
+    * [outsideClick](#option-outsideClick)
+    * [theme](#option-theme)
   - [events](#events)
     * [onDismiss()](#event-dismiss)
     * [onSubmit(data)](#event-submit)
@@ -126,13 +128,13 @@ Using this option, you can specify buttons for the modal. This option's value mu
 **Notice that there are default constants for the option action and type:**
 
 - action
-  * coolmodal.BUTTON_SUBMIT
-  * coolmodal.BUTTON_DISMISS
+  * `coolmodal.BUTTON_SUBMIT`
+  * `coolmodal.BUTTON_DISMISS`
 - type
-  * coolmodal.BUTTON_DANGER
-  * coolmodal.BUTTON_SUCCESS
-  * coolmodal.BUTTON_WARNING
-  * coolmodal.BUTTON_INFO
+  * `coolmodal.BUTTON_DANGER`
+  * `coolmodal.BUTTON_SUCCESS`
+  * `coolmodal.BUTTON_WARNING`
+  * `coolmodal.BUTTON_INFO`
 
 Example for the button option:
 ```js
@@ -156,6 +158,25 @@ The default width of the modal is 500px, however, if you want to change it, then
 Example:
 ```js
 coolmodal({title: 'This is a modal', width: '800px'})
+```
+
+### Option: `outsideClick`
+By default, user cannot dismiss modal by clicking outside it, however, you can enable this by setting this option to true.
+
+Example:
+```js
+coolmodal({title: 'This is a modal', outsideClick: true})
+```
+
+### Option: `theme`
+To change theme for the modal, you can specify this option with the theme name.
+
+Current supported themes:
+- `dark`
+
+Example:
+```js
+coolmodal({title: 'This is a modal', theme: 'dark'})
 ```
 
 ## Events
@@ -208,10 +229,8 @@ let event = {
 let content = {
   title: 'Sign up',
   content: [
-    {tag: 'label', text: 'Name:'},
-    {tag: 'input', name: 'name', placeholder: 'enter name...'},
-    {tag: 'label', text: 'Password:'},
-    {tag: 'input', name: 'pass', type: 'password', placeholder: 'enter pass...'},
+    {tag: 'input', name: 'name', placeholder: 'enter name...', label: 'Name:'},
+    {tag: 'input', name: 'pass', type: 'password', placeholder: 'enter pass...', label: 'Password:'},
   ],
   button: [
     {content: 'sign up', action: coolmodal.BUTTON_SUBMIT},
