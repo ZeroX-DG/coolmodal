@@ -69,11 +69,17 @@ const noButton = {
   types: ['boolean']
 }
 
+const outsideClick = {
+  required: false,
+  types: ['boolean']
+}
+
 export default {
   title,
   content,
   button,
   width,
   theme,
-  noButton
+  noButton,
+  outsideClick
 }
