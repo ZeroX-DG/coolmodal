@@ -23,4 +23,10 @@ describe('create modal', () => {
     expect(hasModal).toBe(true);
   });
 
+  it('should have a default with of 500px', () => {
+    coolmodal({title: 'Hey'});
+    let modal_width = $$(MODAL).width();
+    expect(modal_width).toBe(500);
+  });
+
 });

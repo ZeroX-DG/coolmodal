@@ -59,9 +59,21 @@ const width = {
   types: ['string']
 };
 
+const theme = {
+  required: false,
+  types: ['string']
+};
+
+const noButton = {
+  required: false,
+  types: ['boolean']
+}
+
 export default {
   title,
   content,
   button,
-  width
+  width,
+  theme,
+  noButton
 }

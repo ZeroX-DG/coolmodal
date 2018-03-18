@@ -35,11 +35,19 @@ export function initModalContent(options, events) {
   options.content = options.content || options.content_html || '';
   initContent(options.content, options.content_html != undefined);
   options.button = options.button || [{content: 'OK', action: SUBMIT, type: BUTTON_INFO}];
-  initButton(options.button, events);
+  if (!options.noButton) {
+    initButton(options.button, events);
+  }
 }
 
-export function initModal(width) {
+export function initModal(options) {
   let modal = stringToNode(modal_html);
-  modal.style.width = width;
+  if (options.width) {
+    modal.style.width = options.width;
+  }
+
+  if (options.theme) {
+    modal.classList.add(options.theme);
+  }
   getNode(MODAL_OVERLAY).appendChild(modal);
 }
