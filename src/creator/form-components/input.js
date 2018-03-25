@@ -1,25 +1,25 @@
-import CLASSNAME from '../../class-list';
-
-const {
-  INPUT,
-  FORM_CONTROL
-} = CLASSNAME;
+import {stringToNode} from '../utility';
+import input_html from '../../markup/input';
 
 export function initInput(option) {
-  let tag = document.createElement('input');
-  tag.className = INPUT;
-  tag.classList.add(FORM_CONTROL);
-  if (option.name) {
-    tag.name = option.name;
+  let input = stringToNode(input_html);
+
+  let properties = [
+    'name',
+    'placeholder',
+    'id',
+    'type',
+    'value',
+    'onchange',
+    'onkeyup',
+    'onkeydown',
+  ];
+  for (var i = 0; i < properties.length; i++) {
+    let property = properties[i];
+    if (option[property]) {
+      input[property] = option[property];
+    }
   }
-  if (option.placeholder) {
-    tag.placeholder = option.placeholder;
-  }
-  if (option.id) {
-    tag.id = option.id;
-  }
-  if (option.type) {
-    tag.type = option.type;
-  }
-  return tag;
+
+  return input;
 }

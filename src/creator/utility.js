@@ -22,3 +22,8 @@ export function getNode(query) {
 export function getNodes(query) {
   return document.querySelectorAll(`.${query}`);
 }
+
+export function injectToMarkup(markup, variable, value) {
+  let regex = new RegExp(`{${variable}}`, 'g');
+  return markup.replace(regex, value);
+}

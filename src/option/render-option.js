@@ -39,9 +39,9 @@ const content = {
       required: false,
       types: ['string']
     },
-    text: {
+    value: {
       required: false,
-      types: ['string']
+      types: ['string', 'number']
     },
     options: {
       required: false,
@@ -50,6 +50,10 @@ const content = {
         label: ['string', 'number'],
         value: ['string', 'number']
       }
+    },
+    label: {
+      required: false,
+      types: ['string']
     }
   }
 };
