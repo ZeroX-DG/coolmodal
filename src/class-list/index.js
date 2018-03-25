@@ -1,11 +1,11 @@
-const MODAL   = 'coolm-modal';
-const TITLE   = 'coolm-title';
-const INPUT   = 'coolm-input';
-const LABEL   = 'coolm-label';
-const SELECT  = 'coolm-select';
-const FORM    = 'coolm-form';
-const BUTTON  = 'coolm-button';
-const CONTENT = 'coolm-content';
+const MODAL    = 'coolm-modal';
+const TITLE    = 'coolm-title';
+const INPUT    = 'coolm-input';
+const LABEL    = 'coolm-label';
+const SELECT   = 'coolm-select';
+const FORM     = 'coolm-form';
+const BUTTON   = 'coolm-button';
+const CONTENT  = 'coolm-content';
 
 export default {
   MODAL,

@@ -54,7 +54,8 @@ To create an input tag, you can specify the object with the structure like this
   name: <string> (input's name, use for event callback),
   type: <string> (input's type, example: password, email...),
   placeholder: <string> (input's placeholder),
-  label: <string> (label for input, a replacement for the label tag)
+  label: <string> (label for input, a replacement for the label tag),
+  value: <string|number> (input's default value)
 }
 ```
 Example:
@@ -80,7 +81,8 @@ To create a dropdown select tag, you can use this option to add it to the form. 
   tag: 'select',
   name: <string> (select's name, use for event callback),
   label: <string> (label for input, a replacement for the label tag),
-  options: <Array> (This property contains a list of object that indicate the options will be rendered in the select)
+  options: <Array> (This property contains a list of object that indicate the options will be rendered in the select),
+  placeholder: <string> (a default option that's disabled and selected when open modal)
 }
 ```
 
@@ -107,7 +109,8 @@ coolmodal({
         {label: 'Chrome', value: 1},
         {label: 'Opera', value: 2},
         {label: 'Firefox', value: 3}
-      ]
+      ],
+      placeholder: 'Select browser here !'
     }
   ]
 })

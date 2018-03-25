@@ -50,6 +50,10 @@ const content = {
         label: ['string', 'number'],
         value: ['string', 'number']
       }
+    },
+    label: {
+      required: false,
+      types: ['string']
     }
   }
 };
