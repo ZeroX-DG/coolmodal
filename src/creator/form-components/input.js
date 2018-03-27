@@ -13,11 +13,17 @@ export function initInput(option) {
     'onchange',
     'onkeyup',
     'onkeydown',
+    'className',
   ];
   for (var i = 0; i < properties.length; i++) {
     let property = properties[i];
     if (option[property]) {
-      input[property] = option[property];
+      if (property == 'className') {
+        input.classList.add(option[property]);
+      }
+      else {
+        input[property] = option[property];
+      }
     }
   }
 
