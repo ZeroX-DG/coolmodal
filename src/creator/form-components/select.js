@@ -9,6 +9,7 @@ export function initSelect(init_option) {
     'id',
     'onchange',
     'placeholder',
+    'className',
   ];
   for (var i = 0; i < properties.length; i++) {
     let property = properties[i];
@@ -19,6 +20,9 @@ export function initSelect(init_option) {
         placeholder.setAttribute('disabled', 'disabled');
         placeholder.setAttribute('selected', 'selected');
         select.appendChild(placeholder);
+      }
+      else if (property == 'className') {
+        select.classList.add(option[property]);
       }
       else {
         select[property] = init_option[property];
